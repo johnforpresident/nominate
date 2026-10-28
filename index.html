@@ -123,13 +123,15 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (max-height:800px){.caption .wins-h{margin-top:10px}.caption .wins{gap:4px}.caption .wins li{font-size:11.5px}.caption h1{font-size:30px}.caption .rule{display:none}}
 .caption .wins li b{color:var(--gold);font-weight:700}
 .photo img.bg{inset:auto;left:0;top:-23%;width:100%;height:123%}
+.caption h1{display:flex;align-items:center;gap:clamp(8px,.9vw,14px)}
+.caption .namebadge{height:1.05em;width:auto;flex:none;filter:drop-shadow(0 3px 8px rgba(0,0,0,.45))}
 </style>
 </head>
 <body>
 <div class="page">
   <aside class="photo" id="photo">
     <div class="caption">
-      <h1>John Edmonds</h1>
+      <h1>John Edmonds<img class="namebadge" id="badge3" alt="President's Award"></h1>
       <p class="title">Sr. SRM Program Manager, Flight Operations.</p>
       <p class="slogan">Protecting people faster, smarter.</p>
       <div class="rule"></div>
@@ -266,7 +268,7 @@ async function copy(t){
 function toast(m){ const t = $("#toast"); t.innerHTML = m; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("show"), 4200); }
 
 $("#go").href = CONFIG.FORM_URL;
-$("#badge2").src = BADGE;
+$("#badge2").src = BADGE; $("#badge3").src = BADGE;
 if (demo) console.info("Preview mode: claims are stored in this browser only.");
 loadTaken().then(render);
 </script>
